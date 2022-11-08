@@ -1,0 +1,946 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides content-intro">
+				<section>
+					<div class="intro">
+						<h2 class="title" >Sequências e Progressões</h2>
+						<h4 class="name">Fernando Jorge Siqueira Cavalcante</h4>
+					</div>
+				</section>
+				<section class="intro">
+					<h2 class="title">Sequências</h2>
+				</section>
+				<section class="content-slide">
+					<div class="header">
+						<div class="header-text">Introdução</div>
+					</div>
+					<div class="content">
+						<p>
+							Em muitas situações cotidianas aparece a ideia de <b>sequência</b>
+							ou <b>sucessão</b>. Assim, por exemplo, temos:
+						</p>
+						<ul>
+							<li class="fragment fade-up">a sequência dos dias da semana (domingo, segunda-feira, ..., sábado)</li>
+							<li class="fragment fade-up">a sequência dos meses do ano (janeiro, fevereiro, ..., dezembro)</li>
+							<li class="fragment fade-up">a sequência dos números naturais (0, 1, 2, 3, 4, ...)</li>
+							<li class="fragment fade-up">a sequência dos anos, a partir de 2002, nos quais a Copa do Mundo de Futebol
+								foi ou será realizada (2002, 2006, 2010, 2014, ...)
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header">
+						<div class="header-text">Introdução</div>
+					</div>
+					<div class="content">
+						<p>Qual é o próximo elemento das sequências?</p>
+						<ol class="alphalist">
+							<li class="fragment">Março, abril, maio, ... <span class="fragment" style="color: red;">R: junho</span></li>
+							<li class="fragment">Janeiro, março, maior, ... <span class="fragment" style="color: red;">R: julho</span></li>
+							<li class="fragment">Sábado, sexta-feira, quinta-feira, quarta-feira, ... <span class="fragment" style="color: red;">R: terça</span></li>
+							<li class="fragment">Domingo, ... <span class="fragment" style="color: red;">R: impossível determinar</span></li>
+							<li class="fragment">1, 2, 3, 4, ... <span class="fragment" style="color: red;">R: 5</span></li>
+							<li class="fragment">1, 2, 4, 8, 16, ... <span class="fragment" style="color: red;">R: 32</span></li>
+							<li class="fragment">1, ... <span class="fragment" style="color: red;">R: impossível determinar</span></li>
+							<li class="fragment">240, -120, 60, -30, 15, ... <span class="fragment" style="color: red;">R: -7.5</span></li>
+							<li class="fragment">1, 4, 9, 16, ... <span class="fragment" style="color: red;">R: 25</span></li>
+						</ol>
+						<p class="fragment">Em todas as situações acima, observamos certa ordem nos elementos da sequência.
+							Esses elementos são chamados de <b>termos</b> da sequência.
+						</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>Dessa forma, na sequência dos meses do ano (Janeiro, Fevereiro, Março, ...), temos:</p>
+						<ul class="col-2">
+							<li class="column50 fragment">$a_1 = janeiro$</li>
+							<li class="column50 fragment">$a_7 = julho$</li>
+							<li class="column50 fragment">$a_{10} = outubro$</li>
+							<li class="column50 fragment">$a_{12} = dezembro$</li>
+						</ul>
+						<p class="fragment">Onde $a_1$ é o 1° termo, $a_2$ é o 2° termo, $a_3$ é o 3° termo e assim por diante,
+							até o termo de ordem <b>n</b>, ou enésimo termo ($a_n$).
+						</p>
+						<p class="fragment">Assim, a sequência pode ser representada por:</p>
+						<p class="fragment">
+							\[(a_1, a_2, a_3, \ldots, a_n)\]
+						</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<div class="theorem">
+							<p>
+								Uma <b>sequência</b> ou <b>sucessão</b> de números reais <b>é uma função</b>
+								definida em $\mathbb{N}^* = \{1, 2, 3, \dots, n, \dots\}$ e tomando valores no
+								conjunto $\mathbb{R}$ dos números reais.
+								\[f: \mathbb{N} \mapsto \mathbb{R}\]
+							</p>
+						</div>
+						<div class="col-2">
+							<div class="column50 fragment">
+								<img src="figs/diagrama_funcao.svg" alt="">
+							</div>
+							<div class="column50 fragment">
+								<p>Dessa forma:</p>
+								<div class="col-2">
+									<div class="column50">$f(1) = a_1$</div>
+									<div class="column50">$f(2) = a_2$</div>
+									<div class="column50">$f(3) = a_3$</div>
+									<div class="column50">$\ldots$</div>
+									<div class="column50">$f(n) = a_n$</div>
+									<div class="column50">$\ldots$</div>
+								</div>
+								<p>O índice <b>n</b> indica a posição do elemento na sequência.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<p>Exemplo 1:</p>
+						<ol class="alphalist">
+							<li>
+								A sequência dos números ímpares positivos é <b>infinita</b>: $(1, 3, 5, 7, 9, \ldots)$,
+								na qual $a_1 = 1$, $a_2 = 3$, $a_3 = 5$, $a_4 = 7$, $a_5 = 9$, etc.
+							</li>
+							<li class="fragment">
+								A sequência dos quatro primeiros múltiplos de $5$ é <b>finita</b>: $(0, 5, 10, 15)$. Nesse caso,
+							$a_1 = 0$, $a_2 = 5$, $a_3 = 10$, $a_4 = 15$.
+							</li>
+							<li class="fragment">
+								$(17, 12, 7, 2, -3, -8)$ é uma sequência finita de 6 termos.
+							</li>
+						</ol>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<p>Exemplo 2:</p>
+						<ul>
+							<li>
+								Ao lançarmos uma moeda, temos dois resultados possíveis: <span class="fragment" style="color: red;">cara ou coroa.</span>
+							</li>
+							<li class="fragment">
+								Se lançarmos duas moedas diferentes, por exemplo, uma de 
+								$R\$ 0.10$ e outra de $R\$ 0.50$, teremos quatro possibilidades: <span class="fragment" style="color: red;">(cara, cara),
+								(cara, coroa), (coroa, cara) e (coroa, coroa)</span>
+							</li>
+							<li class="fragment">
+								Se lançarmos três moedas diferentes, serão oito resultados possíveis: <span class="fragment" style="color: red;">
+									(cara, cara, cara), (cara, cara, coroa), (cara, coroa, coroa), (cara, coroa, cara), (coroa, cara, cara),
+									(coroa, coroa, cara), (coroa, cara, coroa), (coroa, coroa, coroa)</span>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<p>
+							A relação entre o número de moedas e o número de resultados
+							mostrada na tabela abaixo é uma função:
+						</p>
+						<div class="col-2c" style="height: 30%;">
+							<div class="column50">
+								<p style="color: orange; font-size: 32px; text-align: center;">Lançamento de moedas</p>
+								<table>
+									<tr>
+										<td style="background-color: #FFE5CC;">Número de moedas</td>
+										<td>$1$</td>
+										<td>$2$</td>
+										<td>$3$</td>
+										<td>$4$</td>
+										<td>$5$</td>
+										<td>$\ldots$</td>
+									</tr>
+									<tr>
+										<td style="background-color: #FFE5CC;">Número de resultados</td>
+										<td>$2$</td>
+										<td>$4$</td>
+										<td>$8$</td>
+										<td>$16$</td>
+										<td>$32$</td>
+										<td>$\ldots$</td>
+									</tr>
+								</table>
+							</div>
+							<div class="column50"><img src="figs/diagrama_funcao_2.svg" alt="" style="height: 48%;"></div>
+						</div>
+						<p>
+							Nesse caso:
+						</p>
+						<p class="fragment">
+							$f(1) = a_1 = 2$, $f(2) = a_2 = 4$, $f(3) = a_3 = 8$, etc. 
+						</p>
+						<p class="fragment">
+							Nesse exemplo, observe que $2 = 2^1$; $4 = 2^2$; $8 = 2^3$, etc.
+						</p>
+						<p class="fragment">Então, se <b>n</b> é o número de moedas, o número de resultados é dado por $2^n$.</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<p>Assim, temos $f(n) = a_n = 2^n$.</p>
+						<p class="fragment">
+							A expressão $a_n = 2^n$, é chamada de <b>lei de formação</b> ou <b>termo geral</b>
+							da sequência $(2, 4, 8, 16, 32, ...)$, pois fazendo $n = 1, 2, 3, \ldots$ obtemos os
+							termos $a_1 = 2$, $a_2 = 4$, $a_3 = 8$, etc., da sequência.
+						</p>
+					</div>
+				</section>
+				<section class="intro">
+					<h2 class="title">Progressão Aritmética (PA)</h2>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>Observe o exemplo a seguir:</p>
+						<p class="fragment">Uma empresa produziu, em 2012, 100.000 unidades de certo produto. Quantas
+							unidades deveria ter produzido, anualmente, de 2012 a 2017, se o aumento anual de
+							produção fosse estabelecido em 20.000 unidades?
+						</p>
+						<p class="fragment">Esquematizamos da seguinte forma:</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<ul>
+							<li>produção de 2012: <span class="fragment red">100.000</span></li>
+							<li class="fragment">produção de 2013: <span class="red fragment"> 100.000 + 20.000 =</span>
+								<span class="fragment red">120.000</span>
+							</li>
+							<li class="fragment">produção de 2014: <span class="red fragment"> 120.000 + 20.000 =</span>
+								<span class="fragment red">140.000</span>
+							</li>
+							<li class="fragment">produção de 2015: <span class="red fragment"> 140.000 + 20.000 =</span>
+								<span class="fragment red">160.000</span>
+							</li>
+							<li class="fragment">produção de 2016: <span class="red fragment"> 160.000 + 20.000 =</span>
+								<span class="fragment red">180.000</span>
+							</li>
+							<li class="fragment">produção de 2017: <span class="red fragment"> 180.000 + 20.000 =</span>
+								<span class="fragment red">200.000</span>
+							</li>
+						</ul>
+						<p class="fragment">Nessas condições, a produção anual desse período pode ser representada pela sequência:</p>
+						<p class="fragment">\[(100.000, 120.000, 140.000, 160.000, 180.000, 200.000)\]</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>\[(100.000, 120.000, 140.000, 160.000, 180.000, 200.000)\]</p>
+						<p>Note que, nessa sequência, cada termo, a partir do segundo, é obtido por meio da
+							adição do termo anterior a este número e um número fixo (20.000, nesse caso).
+						</p>
+						<p class="fragment">Sequências desse tipo são chamadas <b>progressões aritméticas</b> (<b>PAs</b>). Observe que cada termo
+						e o anterior é constante.</p>
+						<p class="fragment">A sequência (100.000, 120.000, 140.000, 160.000, 180.000, 200.000) é um
+							exemplo de progressão aritmética. O aumento de cada termo para o seguinte é sempre o mesmo
+							e é chamado <b>razão</b> da progressão. A razão dessa progressão é 20.000.
+						</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<div class="theorem">
+							<p><b>Progressão aritmética</b> é toda sequência de números na qual a diferença
+								entre cada termo (a partir do segundo) e o termo anterior é constante. Essa diferença
+								constante é chamada <b>razão</b> da progressão e é representada pela letra r.</p>
+						</div>
+						<ol class="alphalist">
+							<li class="fragment">A sequência $(2, 7, 12, 17, ...)$ é uma progressão aritmética infinita de razão 5,
+								em que $a_1 =2$ e $r = 5$.
+							</li>
+							<li class="fragment">A sequência $(20, 10, 0, -10, 20)$ é uma PA de cinco termos, em
+								que $a_1 = 20$ e $r = -10$.
+							</li>
+							<li class="fragment">
+								A sequência $(4, 4, 4)$ é uma PA de três termos em que $a_1 = 4$ e a razão $r = 0$.
+							</li>
+							<li class="fragment">A sequência $(1, -1, 1-, 1, -1, \ldots)$ <b>não</b> é uma progressão
+							aritmética, pois as diferenças entre termos sucessivos são alternadamente $-2$ e $2$.</li>
+						</ol>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Classificação das Progressões aritméticas</div></div>
+					<div class="content">
+						<p>Dependendo da razão $r$, uma PA pode ser:</p>
+						<ul>
+							<li class="fragment">
+								<b>Crescente</b>: se cada termo, a partir do segundo, é maior que o anterior, isto é,
+								quando a razão $r$ é positiva.
+								<p>$(3, 7, 11, 15, \ldots)$ é uma PA crescente, pois $r = 4 > 0$</p>
+							</li>
+							<li class="fragment">
+								<b>Decrescente</b>: se cada termo, a partir do segundo, é menor que o seu anterior, isto é,
+								quando a razão $r$ é negativa.
+								<p>$(16, 10, 4, -2, -8, \ldots)$ é uma PA decrescente, pois $r = -6 < 0$</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Classificação das Progressões aritméticas</div></div>
+					<div class="content">
+						<ul>
+							<li>
+								<b>Constante</b>: se todos os seus termos são iguais, isto é, a razão $r$ é nula.
+								<p>$(5, 5, 5, 5, 5, \ldots)$ é uma PA constante, pois $r = 0$</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Termo geral de uma PA</div></div>
+					<div class="content">
+						<p>Em uma progressão aritmética $(a_1, a_2, a_3, \ldots, a_n, \ldots)$ de razão $r$, temos:
+						</p>
+						<div class="col-2">
+							<div class="column50">
+								<p class="fragment">$a_2 = a_1 + r$</p>
+								<p class="fragment">$a_3 = a_1 + 2r$</p>
+								<p class="fragment">$a_4 = a_1 + 3r$</p>
+								<p class="fragment">$a_5 = a_1 + 4r$</p>
+								<p class="fragment">$\vdots$</p>
+								<p class="fragment">$a_n = a_1 + (n-1)r$</p>
+							</div>
+							<div class="column50">
+								<p class="fragment">$a_n = a_1 + (n-1)r$</p>
+								<p class="fragment sol">é chamado de <b>termo geral da PA</b></p>
+								<p class="fragment sol">$a_n \longrightarrow $ é termo geral</p>
+								<p class="fragment sol">$a_1 \longrightarrow $ é o 1° termo</p>
+								<p class="fragment sol">$n \longrightarrow $ é o número de termos</p>
+								<p class="fragment sol">$r \longrightarrow $ é a razão da PA</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Termo geral de uma PA</div></div>
+					<div class="content">
+						<ul>
+							<li>Note que $a_9 = a_4 + 5r$, pois, ao passar de $a_4$ para $a_9$,
+								avançamos cinco termos.
+							</li>
+							<li class="fragment">
+								De modo análogo, $a_3 = a_{15} - 12r$, pois retrocedemos $12$ termos ao
+								passar de $a_15$ para $a_3$.
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Qual é a razão da PA que se obtém inserindo 5 termos entre 2 e 38?</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment">$a_1 = 2$; $a_7 = 38$</p>
+						<p class="fragment">$a_7 = a_1 + 6r$</p>
+						<p class="fragment">$38 = 2 + 6r$</p>
+						<p class="fragment">$6r = 36$</p>
+						<p class="fragment">r = 6</p>
+						<p class="fragment">Logo, a razão da PA é 6.</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>O cometa Halley orbita em torno do Sol. Ele pode ser visto da Terra a 
+							olho nu quando está na parte de sua órbita que fica mais próxima do Sol.
+							Isso ocorre, em média, de 76 em 76 anos. Sabendo que após o descobrimento
+							do Brasil, a terceira vez que ele foi visto da Terra a olho nu foi em 1683
+							e a sétima vez foi em 1986, responda:
+						</p>
+						<ol class="alphalist">
+							<li>Quando foi a quinta vez, após o descobrimento do Brasil, que ele foi
+								visível da Terra a olho nu?
+							</li>
+							<li>Quais foram (ou serão) todos os anos em que o cometa foi (ou será)
+								visto a olho nu da Terra, desde 1500 até o ano 2200?
+							</li>
+						</ol>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p><b>Resolução:</b></p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment sol">a) $a_3 = 1683$, $a_7 = 1986$ e $r = 76$</p>
+								<p class="fragment sol">$a_5 = a_3 + 2r$</p>
+								<p class="fragment sol">$a_5 = 1683 + 2 \cdot 76$</p>
+								<p class="fragment sol">$a_5 = 1683 + 152$</p>
+								<p class="fragment sol">$a_5 = 1835$</p>
+							</div>
+							<div class="column" style="padding-left: 1em;">
+								<p class="fragment sol">b) $a_3 = 1683$ e $r = 76$</p>
+								<p class="fragment sol">$a_3 = a_1 + 2r$</p>
+								<p class="fragment sol">$1683 = a_1 + 2 \cdot 76$</p>
+								<p class="fragment sol">$1683 = a_1 + 152$</p>
+								<p class="fragment sol">$a_1 = 1683 - 152$</p>
+								<p class="fragment sol">$a_1 = 1531$</p>
+							</div>
+						</div>
+						<p class="fragment">Conhecendo $a_1$, basta ir adicionando a razão $r = 76$ para obter os demais anos:</p>
+						<p class="fragment">1531, 1607, 1683, 1759, 1835, 1910, 1986, 2062 e 2138</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Qual é o 20° termo da PA (2, 8, ...)?</p>
+						<p class="fragment sol">
+							Dados: $\begin{cases}
+										a_1 = 2 \\
+										r = 6 \\
+										n = 20
+									\end{cases}$
+						</p>
+						<p class="fragment sol">$a_{20} = a_1 + 19r$</p>
+						<p class="fragment sol">$a_{20} = 2 + 19 \cdot 6$</p>
+						<p class="fragment sol">$a_{20} = 116$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Em uma PA, o 5° termo vale 30 e o 20° vale 50. Quanto vale o 8° termo dessa
+							progressão?
+						</p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment sol">$a_{20} = a_5 + 15r$</p>
+								<p class="fragment sol">$50 = 30 + 15r$</p>
+								<p class="fragment sol">$15r = 50 -30$</p>
+								<p class="fragment sol">$15r = 20$</p>
+								<p class="fragment sol">$r = \dfrac{20}{15}$</p>
+								<p class="fragment">$r = \dfrac{4}{3}$</p>
+							</div>
+							<div class="column" style="padding-left: 1em;">
+								<p class="fragment sol">$a_8 = a_5 + 3r$</p>
+								<p class="fragment sol">$a_8 = 30 + 3 \cdot \dfrac{4}{3}$</p>
+								<p class="fragment">$a_8 = 30 + 4$</p>
+								<p class="fragment sol">$a_8 = 34$</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content" style="font-size: 30px;">
+						<p>As doenças cardiovasculares são a principal causa de morte em todo o mundo.
+							De acordo com os dados da Organização Mundial da Saúde, 17.3 milhões de pessoas
+							morreram em 2012, vítimas dessas doenças. A estimativa é que, em 2030, esse número
+							seja de 23.6 milhões.
+						</p>
+						<p>Suponha que a estimativa para 2030 seja atingida e considere ($a_n$), $n \in \mathbb{N}$,
+							a sequência que representa o número de mortes (em milhões de pessoas) por doenças cardiovasculares
+							no mundo, $n = 1$ correspondendo a 2012, com $n = 2$ correspondendo a 2013 e assim por diante.
+						</p>
+						<p>Se ($a_n$) é uma progressão aritmética, então o 8° termo dessa sequência, em milhões de pessoas, é
+							igual a:
+						</p>
+						<ol class="choices5 alphalist">
+							<li>19.59</li>
+							<li>19.61</li>
+							<li>19.75</li>
+							<li>20.10</li>
+							<li>20.45</li>
+						</ol>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p><b>Resolução:</b></p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment sol">$a_1 = 17.3$ e $a_{19} = 23.6$</p>
+								<p class="fragment sol">$a_{19} = a_1 + 18r$</p>
+								<p class="fragment sol">$23.6 = 17.3 + 18r$</p>
+								<p class="fragment sol">$18r = 23.6 - 17.3$</p>
+								<p class="fragment sol">$18r = 6.3$</p>
+								<p class="fragment sol">$r = \dfrac{6.3}{18}$</p>
+								<p class="fragment">$r = 0.35$</p>
+							</div>
+							<div class="column">
+								<p class="fragment sol">$a_8 = a_1 + 7r$</p>
+								<p class="fragment sol">$a_8 = 17.3 + 7\cdot 0.35$</p>
+								<p class="fragment sol">$a_8 = 17.3 + 2.45$</p>
+								<p class="fragment sol">$a_8 = 19.75$</p>
+								<p class="fragment">A resposta é a alternativa <b>c</b></p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Soma dos termos de uma PA finita</div></div>
+					<div class="content">
+						<p>Considere uma PA finita qualquer de razão $r$ $(a_1, a_2, a_3, \ldots, a_n)$</p>
+						<p>A soma dos n primeiros termos dessa PA será dada por:</p>
+						<p class="fragment" style="text-align: center;">$S_n = \dfrac{(a_1 + a_n) \cdot n}{2}$</p>
+						<div class="fragment">
+							<p>Onde,</p>
+							<p class="sol">$a_1 \longrightarrow$ é o primeiro termo da PA</p>
+							<p class="sol">$a_n \longrightarrow$ é o último termo a ser somado na PA</p>
+							<p class="sol">$n \longrightarrow$ é o número de termos a serem somados na PA</p>
+							<p class="sol">$S_n \longrightarrow$ é a soma dos $n$ termos</p>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Observe a tabela abaixo:</p>
+						<p style="color: orange; font-size: 32px; text-align: center;">Produção anual de uma empresa de 2010 a 2017</p>
+						<table>
+							<th[align=center]>
+								<td style="width: 250px; background-color: #FFE5CC;"><b>Ano</b></td>
+								<td style="width: 250px; background-color: #FFE5CC;"><b>Produção</b> (em unidades)</td>
+							</th>
+							<tr>
+								<td>2010</td>
+								<td>10.000</td>
+							</tr>
+							<tr>
+								<td>2011</td>
+								<td>12.000</td>
+							</tr>
+							<tr>
+								<td>2012</td>
+								<td>14.000</td>
+							</tr>
+							<tr>
+								<td>2013</td>
+								<td>16.000</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>18.000</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>20.000</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td>22.000</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>24.000</td>
+							</tr>
+						</table>
+						<p>Quantas unidades a empresa produziu de 2010 a 2017?</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p><b>Resolução:</b></p>
+						<p class="fragment">as parcelas formam uma PA finita de razão $r = 2000$:</p>
+						<p class="fragment" style="font-size: 30px;">(10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000)</p>
+						<p class="fragment">Onde:</p>
+						<div class="row" style="font-size: 30px;">
+							<div class="column">
+							<p class="fragment sol">$a_1 = 10000$, $a_n = 24000$ e $n = 8$</p>
+							<p class="fragment">$S_n = \dfrac{(a_1 + a_n) \cdot n}{2}$</p>
+							<p class="fragment">$S_8 = \dfrac{(10000 + 24000) \cdot 8}{2}$</p>
+							</div>
+							<div class="column" style="padding-left: 1em;">
+								<p class="fragment">$S_8 = \dfrac{34000 \cdot 8}{2}$</p>
+								<p class="fragment">$S_8 = 136000$</p>
+								<p class="fragment sol">Logo, a empresa produziu 136.000 unidades.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Calcule a soma dos 5 primeiros termos da PA (8, 13, ...)</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment">$a_1 = 8$ e $r = 5$</p>
+								<p class="fragment sol">$a_5 = a_1 + 4r$</p>
+								<p class="fragment sol">$a_5 = 8 + 4 \cdot 5$</p>
+								<p class="fragment sol">$a_5 = 8 + 20$</p>
+								<p class="fragment sol">$a_5 = 28$</p>
+							</div>
+							<div class="column" style="padding-left: 1em;">
+								<p class="fragment">$a_1 = 8$, $a_5 = 28$ e $n = 5$</p>
+								<p class="fragment">$S_n = \dfrac{(a_1 + a_n) \cdot n}{2}$</p>
+								<p class="fragment">$S_5 = \dfrac{(8 + 28) \cdot 5}{2}$</p>
+								<p class="fragment">$S_5 = \dfrac{36 \cdot 5}{2} = 90$</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="intro">
+					<h2 class="title">Progressão Geométrica</h2>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>Observe o seguinte exemplo:</p>
+						<p class="fragment">Em 2017 uma usina produziu 200.000 kg de açúcar. Quantos
+							quilogramas essa usina produzirá no período de 2017 a 2022 se o aumento
+							de produção anual for sempre 10% em relação ao ano anterior?
+						</p>
+						<ul>
+							<li class="fragment">produção em 2017: <span class="fragment red">$200000$</span></li>
+							<li class="fragment">produção em 2018: <span class="fragment red">$200000 \cdot 1.10 = $</span><span class="fragment red"> $220000$</span></li>
+							<li class="fragment">produção em 2019: <span class="fragment red">$220000 \cdot 1.10 = $</span><span class="fragment red"> $242000$</span></li>
+							<li class="fragment">produção em 2020: <span class="fragment red">$242000 \cdot 1.10 = $</span><span class="fragment red"> $266200$</span></li>
+							<li class="fragment">produção em 2021: <span class="fragment red">$266200 \cdot 1.10 = $</span><span class="fragment red"> $292820$</span></li>
+							<li class="fragment">produção em 2022: <span class="fragment red">$292820 \cdot 1.10 = $</span><span class="fragment red"> $322102$</span></li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>Nessas condições, a produção anual, será representada pela sequência
+							(200000, 220000, 242000, 266200, 292820, 322102).
+						</p>
+						<p class="fragment sol">Note que a cada termo, a partir do segundo, é obtido multiplicando o termo
+							anterior por um número fixo (nesse caso, 1.10), ou seja, a produção anual teve uma taxa de
+							crescimento constante de 10% em relação ao ano anterior.
+						</p>
+						<p class="fragment sol">Sequências desse tipo são chamadas de <b>progressões geométricas</b> (<b>PGs</b>).</p>
+						<p class="fragment sol">Nesse exemplo, o valor 1.10 é chamado <b>razão</b> da progressão geométrica e
+						indicado pela letra $q$ (no exemplo $q = 1.10$).</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Introdução</div></div>
+					<div class="content">
+						<p>Observe que a taxa de crescimento no exemplo anterior pode ser encontrada a partir da razão, através da expressão:</p>
+						<p class="fragment" style="text-align: center;">$i = q - 1$</p>
+						<div class="fragment">
+							<p class="sol">Onde:</p>
+							<p class="sol">$i \longrightarrow$ é a taxa de crescimento</p>
+							<p class="sol">$q \longrightarrow$ é a razão da PG</p>
+						</div>
+						<p class="fragment">No exemplo anterior a taxa de 10% poderia ser encontrada pela expressão acima:</p>
+						<p class="fragment sol" style="text-align: center;">$i = q - 1$</p>
+						<p class="fragment sol" style="text-align: center;">$i = 1.10 - 1$</p>
+						<p class="fragment sol" style="text-align: center;">$i = 0.10 \implies i = 10\%$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<div class="theorem">
+							<p>
+								<b>Progressão geométrica</b> é toda sequência de números não nulos na qual é constante o
+								quociente da divisão de cada termo (a partir do segundo) pelo termo anterior. Esse quociente constante
+								é chamado <b>razão (q)</b> da progressão. Ou seja, uma progressão geométrica é uma sequência na qual a taxa
+								de crescimento relativo de cada termo para o seguinte é sempre a mesma.
+							</p>
+						</div>
+						<p class="fragment">Exemplos de progressões geométricas:</p>
+						<p class="fragment sol">
+							a) A sequência (2, 10, 50, 250) é uma PG de quatro termos, em que o 1° termo é $a_1 = 2$ e a razão $q = 5$.
+						</p>
+						<p class="fragment sol">Note que a taxa de crescimento da PG é:</p>
+						<p class="fragment sol" style="text-align: center;">$i = q - 1$</p>
+						<p class="fragment sol" style="text-align: center;">$i = 5 - 1 = 4$</p>
+						<p class="fragment sol" style="text-align: center;">$i = 400\%$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Definição</div></div>
+					<div class="content">
+						<p>
+							b) A sequência (6, -12, 24, -48, 96) é uma PG de cinco termos, na qual:
+						</p>
+						<p class="fragment">$a_1 = 6$</p>
+						<p class="fragment sol">$q = -2$</p>
+						<p class="fragment sol">E taxa de crescimento igual a:</p>
+						<p class="fragment sol">$i = q - 1$</p>
+						<p class="fragment sol">$i = -2 -1$</p>
+						<p class="fragment sol">$i = -3$</p>
+						<p class="fragment sol">$i = -300\%$</p>
+						<p></p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Termo geral de uma PG</div></div>
+					<div class="content">
+						<p>Em uma progressão geométrica $(a_1, a_2, a_3, \ldots, a_n, \ldots)$ de razão $q$, temos:
+						</p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment sol">$a_2 = a_1 \cdot q$</p>
+								<p class="fragment sol">$a_3 = a_1 \cdot q^2$</p>
+								<p class="fragment sol">$a_4 = a_1 \cdot q^3$</p>
+								<p class="fragment sol">$a_5 = a_1 \cdot q^4$</p>
+								<p class="fragment sol">$\vdots$</p>
+								<p class="fragment sol">$a_n = a_1 \cdot q^{n-1}$</p>
+							</div>
+							<div class="column" style="padding-left: 1em;">
+								<p class="fragment">$a_n = a_1 \cdot q^{n-1}$</p>
+								<p class="fragment sol">é chamado de <b>termo geral da PG</b></p>
+								<p class="fragment sol">$a_n \longrightarrow $ é termo geral</p>
+								<p class="fragment sol">$a_1 \longrightarrow $ é o 1° termo</p>
+								<p class="fragment sol">$n \longrightarrow $ é o número de termos</p>
+								<p class="fragment sol">$q \longrightarrow $ é a razão da PG</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Termo geral de uma PG</div></div>
+					<div class="content">
+						<ul>
+							<li>Note que $a_9 = a_4 \cdot q^5$, pois, ao passar de $a_4$ para $a_9$,
+								avançamos cinco termos.
+							</li>
+							<li class="fragment">
+								De modo análogo, $a_3 = \dfrac{a_{15}}{q^{12}}$, pois retrocedemos $12$ termos ao
+								passar de $a_{15}$ para $a_3$.
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Em uma PG de termos positivos, o terceiro termo é 18 e o sétimo é 1458. Qual é
+							o quinto termo dessa progressão?
+						</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment sol">$a_7 = a_3 \cdot q^4$</p>
+								<p class="fragment sol">$1458 = 18 \cdot q^4$</p>
+								<p class="fragment">$q^4 = \dfrac{1458}{4}$</p>
+								<p class="fragment">$q = 3$</p>
+							</div>
+							<div class="column">
+								<p class="fragment sol">$a_5 = a_3 \cdot q^2$</p>
+								<p class="fragment sol">$a_5 = 18 \cdot 3^2$</p>
+								<p class="fragment sol">$a_5 = 18 \cdot 9$</p>
+								<p class="fragment sol">$a_5 = 162$</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Qual é a razão da PG que se obtém inserindo quatro termos entre os números
+							5 e 5120?
+						</p>
+						<p><b>Resolução:</b></p>
+						<p class="fragment sol">$a_1 = 5$ e $a_6 = 5120$</p>
+						<p class="fragment sol">$a_6 = a_1 \cdot q^5$</p>
+						<p class="fragment sol">$5120 = 5 \cdot q^5$</p>
+						<p class="fragment">$q^5 = \dfrac{5120}{5}$</p>
+						<p class="fragment">$q^5 = 1024$</p>
+						<p class="fragment sol">$q = 4$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>A sequência $(\frac{1}{2}, \frac{1}{6}, \ldots)$ é uma PG infinita. Determine
+							a razão dessa PG e a taxa de crescimento relativo dos seus termos.
+						</p>
+						<p><b>Resolução:</b></p>
+						<div class="row">
+							<div class="column">
+								<p class="fragment">$a_1 = \dfrac{1}{2}$ e $a_2 = \dfrac{1}{6}$</p>
+								<p class="fragment">$q = \dfrac{a_2}{a_1} \implies$ <span class="fragment">$q = \dfrac{\dfrac{1}{6}}{\dfrac{1}{2}}$</span></p>
+								<p class="fragment">$q = \dfrac{1}{6} \cdot \dfrac{2}{1} \implies$ <span class="fragment">$q = \dfrac{1}{3}$</span></p>
+							</div>
+							<div class="column">
+								<p class="fragment">Taxa de crescimento relativo:</p>
+								<p class="fragment">$i = q - 1 \implies$ <span class="fragment">$i = \dfrac{1}{3} - 1$</span></p>
+								<p class="fragment">$i = \dfrac{1}{3} - \dfrac{3}{3} \implies$ <span class="fragment">$i = -\dfrac{2}{3}$</span></p>
+								<p class="fragment">$i = -0.66\ldots \simeq -66.66\%$</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>A população de um país é atualmente igual a $P_0$ e cresce 3% ao ano. Qual será a população
+							desse país daqui a $t$ anos?
+						</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment sol">$a_1 = P_0$ e $i = 3\% = 0.03$</p>
+						<p class="fragment sol">$i = q - 1 \implies$ <span class="fragment">$q = 1 + i$</span></p>
+						<p class="fragment sol">$q = 1 + 0.03 \implies$ <span class="fragment">$q = 1.03$</span></p>
+						<p class="fragment sol">Após $t$ anos, temos:</p>
+						<p class="fragment sol">$a_n = a_1 \cdot q^n$</p>
+						<p class="fragment sol">$P_t = P_0 \cdot 1.03^t$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Dê a fórmula do termo geral da PG $(2, 4, \ldots)$.</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment sol">$a_1 = 2$ e $q = 2$</p>
+						<p class="fragment sol">$a_n = a_1 \cdot q^{n-1}$</p>
+						<p class="fragment sol">$a_n = 2 \cdot 2^{n-1}$</p>
+						<p class="fragment sol">$a_n = 2^{n-1+1}$</p>
+						<p class="fragment sol">$a_n = 2^n$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Qual é o 7° termo da PG $(2, 6, \ldots)$?</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment sol">$a_1 = 2$ e $q = 3$ e $n = 7$</p>
+						<p class="fragment sol">$a_7 = a_1 \cdot q^6$</p>
+						<p class="fragment sol">$a_7 = 2 \cdot 3^6$</p>
+						<p class="fragment sol">$a_7 = 1458$</p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Quantos elementos tem a PG $(8, 32, \ldots, 2^{31})$?</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment sol">$a_1 = 8$, $q = 4$ e $a_n = 2^{31}$</p>
+						<p class="fragment sol">$a_n = a_1 \cdot q^{n-1}$</p>
+						<p class="fragment sol">$2^{31} = 8 \cdot 4^{n-1} \implies$ <span class="fragment">$2^{31} = 2^3 \cdot 2^{2 \cdot (n-1)}$</span></p>
+						<p class="fragment sol">$2^{31} = 2^3 \cdot 2^{2n - 2} \implies$ <span class="fragment">$2^{31} = 2^{3 + 2n - 2}$</span></p>
+						<p class="fragment sol">$2^{31} = 2^{2n + 1} \implies$ <span class="fragment">$31 = 2n + 1$</span></p>
+						<p class="fragment sol">$2n = 31 - 1 \implies$ <span class="fragment">$2n = 30$</span></p>
+						<p class="fragment">$n = \dfrac{30}{2} \implies$ <span class="fragment">$n = 15$</span></p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Determine o valor de $x$ de modo que os números $x + 1$, $x+4$ e $x+10$ formem,
+							nessa ordem, uma PG.
+						</p>
+						<p class="fragment"><b>Resolução:</b></p>
+						<p class="fragment sol">Os números formam a PG $(x+1, x+4, x+10)$</p>
+						<p class="fragment">$q = \dfrac{a_2}{a_1} = \dfrac{a_3}{a_2} \implies$ <span class="fragment">$\dfrac{x+4}{x+1} = \dfrac{x+10}{x+4}$</span></p>
+						<p class="fragment">$(x+4)^2 = (x+1)\cdot(x+10)$</p>
+						<p class="fragment sol">$x^2 + 8x + 16 = x^2 + 11x + 10$</p>
+						<p class="fragment sol">$x^2 - x^2 + 8x - 11x = 10 - 16$</p>
+						<p class="fragment sol">$-3x = -6 \implies$ <span class="fragment">$3x = 6 \implies$</span> <span class="fragment">$x = 2$</span></p>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Soma dos termos de uma PG finita</div></div>
+					<div class="content">
+						<div class="theorem">
+							<p>A soma dos $n$ primeiros termos de uma progressão geométrica finita ($a_n$) de razão $q \neq 1$
+								é:
+							</p>
+							<p style="text-align: center;">$S_n = a_1 \cdot \dfrac{q^n - 1}{q -1}, q \neq 1$.</p>
+						</div>
+					</div>
+				</section>
+				<section class="content-slide">
+					<div class="header"><div class="header-text">Exercícios Resolvidos</div></div>
+					<div class="content">
+						<p>Uma empresa produziu $10000$ unidades de certo produto em 2017. A cada ano
+							seguinte produzirá $20%$ a mais desse produto em relação ao ano anterior.
+							Quantas unidades desse produto a empresa produzirá no período de 2018 a 2022?
+						</p>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="node_modules/reveal.js-plugins/anything/plugin.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="anything/Chart.min.js"></script>
+		<script src="anything/d3/d3.v3.min.js"></script>				
+		<script src="anything/d3.patch.js"></script>			
+		<script src="anything/d3/queue.v1.min.js"></script>		
+		<script src="anything/d3/topojson.v1.min.js"></script>		
+		<script src="anything/function-plot.js"></script>
+		<!-- <script src="d3/d3.js"></script>
+		<script src="d3/d3.min.js"></script>
+		<script src="function-plot/function-plot.js"></script>
+		<script src="function-plot/topojson.v1.min.js"></script> -->
+		
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+			// ...
+		anything: [
+			{className: "plot",  defaults: {width:500, height: 500, grid:true,  disableZoom: true}, initialize: (function(container, options){
+					options.target = "#"+container.id; 
+					var instance = functionPlot(options);
+					instance.on('mousemove', function (coordinates) {
+						// update scale factor to match scale of plot
+						if ( document.querySelector(".slides").style.zoom ) {
+							document.scaleX = document.querySelector(".slides").style.zoom;
+						}
+						else if ( document.querySelector(".slides").style.transform ) {
+							var s = document.querySelector(".slides").style.transform;
+							s = s.substr( s.indexOf("scale"), s.length );
+							s = s.substr( s.indexOf("(") + 1, s.indexOf(")") - s.indexOf("(") - 1);
+							document.scaleX = s;
+						}
+						else {
+							document.scaleX = 1;
+						}
+					});
+
+				}) 
+			},
+		{
+			className: "anything",
+			initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+		},
+		// ...
+		],
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealAnything ]
+			});
+		</script>
+	</body>
+</html>
